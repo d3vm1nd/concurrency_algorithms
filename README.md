@@ -28,21 +28,22 @@ This project demonstrates different concurrency control mechanisms and lock-free
 
 ## Algorithm Comparison
 
-| Algorithm | Complexity | Lock-Free | Scalable | Difficulty |
-|-----------|------------|-----------|----------|------------|
-| **Bakery Algorithm** | O(n) time, O(n) space | ✅ Yes | ⚠️ Moderate | 🟡 Medium |
-| **CLH Lock** | O(1) time, O(n) space | ✅ Yes | ✅ Excellent | 🟡 Medium |
-| **Compare-and-Swap (CAS)** | O(1) amortized, O(1) space | ✅ Yes | ✅ Excellent | 🟢 Easy |
-| **Exponential Backoff** | O(1) per retry, O(1) space | N/A (Strategy) | ⚠️ Moderate | 🟢 Easy |
-| **MCS Lock** | O(1) time, O(n) space | ✅ Yes | ✅ Excellent | 🟡 Medium |
-| **Michael-Scott Queue** | O(1) amortized, O(n) space | ✅ Yes | ✅ Excellent | 🟡 Medium |
-| **Peterson's Algorithm** | O(1) time, O(1) space | ✅ Yes | ❌ No (2 threads only) | 🟢 Easy |
-| **Test-and-Set Lock** | O(1) time, O(1) space | ✅ Yes | ❌ Poor | 🟢 Easy |
-| **Treiber Stack** | O(1) amortized, O(n) space | ✅ Yes | ✅ Excellent | 🟢 Easy |
+| Algorithm | Complexity | Lock-Free | Wait-Free | Scalable | Difficulty |
+|-----------|------------|-----------|-----------|----------|------------|
+| **Bakery Algorithm** | O(n) time, O(n) space | ✅ Yes | ❌ No | ⚠️ Moderate | 🟡 Medium |
+| **CLH Lock** | O(1) time, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🟡 Medium |
+| **Compare-and-Swap (CAS)** | O(1) amortized, O(1) space | ✅ Yes | ❌ No | ✅ Excellent | 🟢 Easy |
+| **Exponential Backoff** | O(1) per retry, O(1) space | N/A (Strategy) | ❌ No | ⚠️ Moderate | 🟢 Easy |
+| **MCS Lock** | O(1) time, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🟡 Medium |
+| **Michael-Scott Queue** | O(1) amortized, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🟡 Medium |
+| **Peterson's Algorithm** | O(1) time, O(1) space | ✅ Yes | ❌ No | ❌ No (2 threads only) | 🟢 Easy |
+| **Test-and-Set Lock** | O(1) time, O(1) space | ✅ Yes | ❌ No | ❌ Poor | 🟢 Easy |
+| **Treiber Stack** | O(1) amortized, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🟢 Easy |
 
 ### Legend
 - **Complexity**: Time and space complexity of operations
 - **Lock-Free**: Algorithm doesn't use traditional locks (mutexes/semaphores)
+- **Wait-Free**: Every thread makes progress in a bounded number of steps (stronger than lock-free)
 - **Scalable**: Performance characteristics with increasing thread count
 - **Difficulty**: Implementation complexity (Easy/Medium/Hard)
 
