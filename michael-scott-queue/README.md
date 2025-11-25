@@ -219,3 +219,4 @@ tail -> [Node2: value=2, next=null]
 
 **Note**: This implementation demonstrates the Michael-Scott Queue using modern Java concurrency utilities. The algorithm is a fundamental building block for high-performance concurrent systems, providing lock-free queue operations that scale well with many threads. It's used in production systems where lock contention must be minimized and high throughput is critical.
 
+

@@ -16,6 +16,8 @@ This project demonstrates different concurrency control mechanisms and lock-free
 
 - **[Exponential Backoff](exponential-backoff/)** - A retry strategy that handles resource contention by waiting with exponentially increasing delays between retry attempts. This reduces system load and gracefully manages high contention scenarios.
 
+- **[Harris Linked List](harris-linked-list/)** - A lock-free concurrent linked list implementation that allows multiple threads to insert, delete, and search elements simultaneously. Uses a two-phase deletion strategy (mark then unlink) with atomic compare-and-swap operations to maintain thread safety without locks.
+
 - **[MCS Lock](mcs-lock/)** - Mellor-Crummey and Scott queue-based spinlock that provides fair mutual exclusion. Unlike CLH, threads spin on their own local variable, making it particularly effective for uniform memory access architectures.
 
 - **[Michael-Scott Queue](michael-scott-queue/)** - A lock-free concurrent queue implementation that allows multiple threads to enqueue and dequeue elements simultaneously. Uses atomic compare-and-swap operations to maintain thread safety without locks.
@@ -34,6 +36,7 @@ This project demonstrates different concurrency control mechanisms and lock-free
 | **CLH Lock** | O(1) time, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🟡 Medium |
 | **Compare-and-Swap (CAS)** | O(1) amortized, O(1) space | ✅ Yes | ❌ No | ✅ Excellent | 🟢 Easy |
 | **Exponential Backoff** | O(1) per retry, O(1) space | N/A (Strategy) | ❌ No | ⚠️ Moderate | 🟢 Easy |
+| **Harris Linked List** | O(n) worst case, O(1) avg, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🟡 Medium |
 | **MCS Lock** | O(1) time, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🟡 Medium |
 | **Michael-Scott Queue** | O(1) amortized, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🟡 Medium |
 | **Peterson's Algorithm** | O(1) time, O(1) space | ✅ Yes | ❌ No | ❌ No (2 threads only) | 🟢 Easy |
