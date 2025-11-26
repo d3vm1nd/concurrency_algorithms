@@ -12,6 +12,8 @@ This project demonstrates different concurrency control mechanisms and lock-free
 
 - **[CLH Lock](clh-lock/)** - Craig, Landin, and Hagersten queue-based spinlock that provides fair, efficient mutual exclusion. Threads form a queue and each thread spins on its predecessor's node, reducing cache contention and improving scalability.
 
+- **[ABA Problem](aba-problem/)** - A classic issue in lock-free concurrent programming that occurs when a value changes from A to B and back to A between when a thread reads it and when it attempts to update it. This causes CAS operations to succeed even though the value was modified in between, potentially leading to incorrect behavior in lock-free data structures.
+
 - **[Compare-and-Swap (CAS)](compare-and-swap/)** - A fundamental atomic operation for lock-free synchronization. It atomically updates a value only if it matches an expected value, enabling lock-free data structures and algorithms without traditional blocking mechanisms.
 
 - **[Exponential Backoff](exponential-backoff/)** - A retry strategy that handles resource contention by waiting with exponentially increasing delays between retry attempts. This reduces system load and gracefully manages high contention scenarios.
@@ -36,6 +38,7 @@ This project demonstrates different concurrency control mechanisms and lock-free
 
 | Algorithm | Complexity | Lock-Free | Wait-Free | Scalable | Difficulty |
 |-----------|------------|-----------|-----------|----------|------------|
+| **ABA Problem** | O(1) time, O(1) space | ✅ Yes | ❌ No | N/A (Demonstration) | 🟢 Easy |
 | **Bakery Algorithm** | O(n) time, O(n) space | ✅ Yes | ❌ No | ⚠️ Moderate | 🟡 Medium |
 | **CLH Lock** | O(1) time, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🟡 Medium |
 | **Compare-and-Swap (CAS)** | O(1) amortized, O(1) space | ✅ Yes | ❌ No | ✅ Excellent | 🟢 Easy |
