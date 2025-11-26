@@ -18,6 +18,10 @@ This project demonstrates different concurrency control mechanisms and lock-free
 
 - **[Harris Linked List](harris-linked-list/)** - A lock-free concurrent linked list implementation that allows multiple threads to insert, delete, and search elements simultaneously. Uses a two-phase deletion strategy (mark then unlink) with atomic compare-and-swap operations to maintain thread safety without locks.
 
+- **[Lock-Free Hash Table](lock-free-hash-table/)** - A lock-free concurrent hash table implementation that allows multiple threads to insert, retrieve, and remove key-value pairs simultaneously. Uses bucket-based design with lock-free linked lists and atomic compare-and-swap operations to maintain thread safety without locks.
+
+- **[Lock-Free Skip List](lock-free-skip-list/)** - A lock-free concurrent skip list implementation that provides efficient sorted data structure operations. Uses multiple levels of linked lists with probabilistic balancing, allowing O(log n) average-case search, insert, and delete operations. Implements lock-free algorithms using atomic compare-and-swap operations for thread-safe concurrent access.
+
 - **[MCS Lock](mcs-lock/)** - Mellor-Crummey and Scott queue-based spinlock that provides fair mutual exclusion. Unlike CLH, threads spin on their own local variable, making it particularly effective for uniform memory access architectures.
 
 - **[Michael-Scott Queue](michael-scott-queue/)** - A lock-free concurrent queue implementation that allows multiple threads to enqueue and dequeue elements simultaneously. Uses atomic compare-and-swap operations to maintain thread safety without locks.
@@ -37,6 +41,8 @@ This project demonstrates different concurrency control mechanisms and lock-free
 | **Compare-and-Swap (CAS)** | O(1) amortized, O(1) space | ✅ Yes | ❌ No | ✅ Excellent | 🟢 Easy |
 | **Exponential Backoff** | O(1) per retry, O(1) space | N/A (Strategy) | ❌ No | ⚠️ Moderate | 🟢 Easy |
 | **Harris Linked List** | O(n) worst case, O(1) avg, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🟡 Medium |
+| **Lock-Free Hash Table** | O(1) avg, O(n) worst case, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🟡 Medium |
+| **Lock-Free Skip List** | O(log n) avg, O(n) worst case, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🔴 Hard |
 | **MCS Lock** | O(1) time, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🟡 Medium |
 | **Michael-Scott Queue** | O(1) amortized, O(n) space | ✅ Yes | ❌ No | ✅ Excellent | 🟡 Medium |
 | **Peterson's Algorithm** | O(1) time, O(1) space | ✅ Yes | ❌ No | ❌ No (2 threads only) | 🟢 Easy |
@@ -58,3 +64,11 @@ This project demonstrates different concurrency control mechanisms and lock-free
 ## Usage
 
 Each algorithm is located in its own directory with a README file explaining its implementation and usage. Navigate to the specific algorithm directory for detailed documentation.
+
+### Quick Start
+
+1. Navigate to any algorithm directory
+2. Compile the Java file: `javac <AlgorithmName>.java`
+3. Run the program: `java <AlgorithmName>`
+
+Each implementation includes a `main` method with example usage demonstrating concurrent operations using virtual threads.
